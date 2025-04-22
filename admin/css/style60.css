@@ -1,0 +1,256 @@
+#admin-notes-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #59bb65;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 8px;
+  cursor: pointer !important;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+}
+
+#admin-notes-modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 80px;
+  right: 5px;
+  background: #333333;
+  border: 0 solid #111;
+  padding: 16px;
+  width: 400px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  border-radius: 8px;
+}
+
+#admin-notes-header {
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #cccccc;
+}
+
+#admin-notes-modal textarea {
+  width: 100%;
+  height: 200px;
+  flex-grow: 1;
+  margin-bottom: 10px;
+}
+
+#admin-notes-modal textarea:focus {
+  outline: 2px solid #56ff00;
+}
+
+#admin-notes-save {
+  background: #59bb65;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer !important;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#admin-notes-button:hover,
+#admin-notes-save:hover {
+  background: #56ff00;
+}
+
+#admin-notes-modal.hidden,
+.hidden {
+  display: none;
+}
+
+#admin-notes-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+#admin-notes-overlay.hidden {
+  display: none;
+}
+
+#admin-notes-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  z-index: 11;
+}
+
+#admin-notes-close:hover {
+  color: #fff;
+}
+
+#admin-notes-timestamp {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+  text-align: center;
+}
+
+#admin-notes-modal,
+#admin-notes-button {
+  cursor: move;
+  user-select: none;
+  visibility: hidden;
+}
+
+#admin-notes-button:not(.hidden),
+#admin-notes-modal:not(.hidden) {
+  visibility: visible;
+}
+
+/* Positioning Classes for the Floating Button */
+#admin-notes-button.position-top-left {
+  top: 20px;
+  left: 20px;
+  bottom: auto;
+  right: auto;
+}
+
+#admin-notes-button.position-top-right {
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+  left: auto;
+}
+
+#admin-notes-button.position-top-center {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: auto;
+  right: auto;
+}
+
+#admin-notes-button.position-bottom-left {
+  bottom: 20px;
+  left: 20px;
+  top: auto;
+  right: auto;
+}
+
+#admin-notes-button.position-bottom-right {
+  bottom: 20px;
+  right: 20px;
+  top: auto;
+  left: auto;
+}
+
+#admin-notes-button.position-bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: auto;
+  right: auto;
+}
+
+#admin-notes-gear {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  z-index: 11;
+}
+
+#admin-notes-gear:hover {
+  color: #fff;
+}
+
+#admin-notes-settings {
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  margin-top: 40px;
+}
+
+#admin-notes-settings h3 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#admin-notes-back {
+  margin-top: 20px;
+  padding: 6px 14px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#admin-notes-back:hover {
+  background-color: #56ff00;
+}
+
+.admin-notes-body-hidden textarea,
+.admin-notes-body-hidden #admin-notes-save,
+.admin-notes-body-hidden #admin-notes-timestamp {
+  display: none;
+}
+
+#admin-notes-reset {
+  margin-top: 10px;
+  padding: 6px 14px;
+  background-color: #a00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#admin-notes-reset:hover {
+  background-color: #e00;
+}
+
+@media (max-width: 781px) {
+  #admin-notes-modal {
+    left: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    top: unset;
+    bottom: 0;
+    margin: 0;
+    padding: 12px;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+
+  #admin-notes-modal textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
