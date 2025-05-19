@@ -1,17 +1,4 @@
-=== Admin Hero ===
-Contributors: nchisley
-Donate link: https://natechisley.com/donate
-Tags: admin, notes, productivity, admin bar, memo
-Requires at least: 5.0
-Tested up to: 6.8
-Stable tag: 1.0.13
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.txt
-
-Admin notes for website administrators, accessible via a modal that lets you write, edit, and save notes directly within the WordPress dashboard.
-
-== Description ==
-Admin Hero for website administrators provides a fast, convenient way to capture important information right inside the WordPress dashboard. With a simple floating button in the admin bar, you can open a sleek, distraction-free modal to jot down notes, reminders, or project instructions. Notes are saved securely and persist across sessions, making it ideal for solo developers, client handoffs, or multi-admin teams. Whether you're managing one site or dozens, Admin Hero keeps your thoughts organized and always within reach.
+Admin Hero for website administrators provides a fast, convenient way to capture important information right inside the WordPress dashboard. With a simple floating button in the admin bar, you can open a sleek, distraction-free modal to jot down notes, reminders, or project instructions. Notes are saved securely and persist across sessions, making it ideal for solo developers, client handoffs, or multi-admin teams. Whether you’re managing one site or dozens, Admin Hero keeps your thoughts organized and always within reach.
 
 Go **Pro** for some awesome features, with many more to come: [AdminHero.pro](https://adminhero.pro)
 
