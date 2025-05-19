@@ -22,7 +22,7 @@
  * @link       https://natechisley.com
  * @since      1.0.0
  *
- * @package    admin-notes
+ * @package    admin-hero
  */
 
 // If uninstall not called from WordPress, then exit.
