@@ -1,49 +1,80 @@
-== Admin Notes ==
-Contributors: nchisley  
-Donate link: https://natechisley.com/donate  
-Tags: admin, notes, dashboard, sticky note, admin notes  
-Requires at least: 5.0  
-Tested up to: 6.8  
-Stable tag: 1.0.0  
-License: GPLv2 or later  
-License URI: https://www.gnu.org/licenses/gpl-2.0.txt  
+=== Admin Hero ===
+Contributors: nchisley
+Donate link: https://natechisley.com/donate
+Tags: admin, notes, productivity, admin bar, memo
+Requires at least: 5.0
+Tested up to: 6.8
+Stable tag: 1.0.13
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
-A draggable floating notes plugin for WordPress admins. Add quick notes, save them automatically, and keep them pinned anywhere in your dashboard.
+Admin notes for website administrators, accessible via a modal that lets you write, edit, and save notes directly within the WordPress dashboard.
 
 == Description ==
-Admin Notes adds a floating button to your WordPress admin area. When clicked, it opens a draggable modal where you can jot down personal admin notes. Notes are saved automatically (and manually), persist between sessions, and are unique per user. You can also drag and reposition both the button and the modal — with positions saved for your account.
+Admin Hero for website administrators provides a fast, convenient way to capture important information right inside the WordPress dashboard. With a simple floating button in the admin bar, you can open a sleek, distraction-free modal to jot down notes, reminders, or project instructions. Notes are saved securely and persist across sessions, making it ideal for solo developers, client handoffs, or multi-admin teams. Whether you're managing one site or dozens, Admin Hero keeps your thoughts organized and always within reach.
 
-Includes:
-- Autosave with last saved timestamp  
-- Reset positions directly from the settings tab  
-- Built-in settings tab inside the modal  
-- Fully customizable and lightweight  
+Go **Pro** for some awesome features, with many more to come: [AdminHero.pro](https://adminhero.pro)
+
+### Pro features
+- **Modal Persistence:** Remembers whether the modal was open (and its position/fullscreen state) across page loads and navigation.
+- **Autosave Notes:** Continuously saves your note content as you type (and on close), with visual “autosaved” feedback.
+- **Draggable Modal:** Lets you click-and-drag the modal header to reposition it, remembers that position, and offers a “reset” link.
+- **Fullscreen Mode:** Toggles the modal to fill the viewport for complete distraction freedom.
+- **Frontend Notes:** Brings the same notes modal to your site’s front end.
+
+Check out our other awesome plugins: [Admin Shift](https://wordpress.org/plugins/admin-shift) | [Truncate Text](https://wordpress.org/plugins/truncate-text)
 
 == Installation ==
 1. Log in to your WordPress site as an administrator.  
-2. Go to the "Plugins" section in the dashboard.  
-3. Click "Add New" and then "Upload Plugin."  
-4. Upload the `admin-notes.zip` file and click "Install Now."  
-5. Once installed, click "Activate Plugin."  
+2. Go to the **Plugins** section in the dashboard.  
+3. Click **Add New** → **Upload Plugin**.  
+4. Choose the `admin-hero.zip` file and click **Install Now**.  
+5. Once installed, click **Activate Plugin**.
 
 == Usage ==
-- Click the 📝 button to open the notes modal  
-- Drag the modal or button anywhere  
-- Use the gear icon in the modal to access the settings tab  
-- Reset positions from the settings view  
-
-== Support ==
-Need help? Contact us at [NateChisley.com](https://natechisley.com) — we’re here to assist.
-
-== Contributing ==
-We welcome contributions! Submit feedback or help improve the plugin via [NateChisley.com](https://natechisley.com).
+1. After activation, a note icon (📝) appears in the admin bar.  
+2. Click the icon to open the notes modal.  
+3. Write or edit your notes using the editor.  
+4. Click **Save** to store your notes.
 
 == Screenshots ==
-1. Floating notes button (📝) in bottom corner  
-2. Draggable notes modal  
-3. Settings tab with reset option  
-4. Note autosave in action  
+1. Default notes modal view
+2. Settings panel
+3. Autosave in action
+4. Admin bar button location
+
+== Support ==
+If you have questions or issues, please reach out at [AdminHero.pro](https://adminhero.pro).
+
+== Contributing ==
+We welcome contributions! See our guidelines at [AdminHero.pro](https://adminhero.pro).
 
 == Changelog ==
+= 1.0.13 =
+- Code stability update.
+= 1.0.12 =
+- Code stability update.
+= 1.0.11 =
+- Code stability update.
+= 1.0.10 =
+- Pro links updated.
+= 1.0.9 =
+- Pro links added.
+= 1.0.8 =
+- UI improvements.
+= 1.0.7 =
+- Styling adjustments.
+= 1.0.6 =
+- Styling adjustments.
+= 1.0.5 =
+- Header spacing adjustment.
+= 1.0.4 =
+- Minor bug fixes.
+= 1.0.3 =
+- Minor functionality fixes.
+= 1.0.2 =
+- Styling updates.
+= 1.0.1 =
+- Admin bar button improvement.
 = 1.0.0 =
-- Initial release  
+- Initial release.
