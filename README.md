@@ -25,7 +25,7 @@ Check out our other awesome plugins: [Admin Shift](https://wordpress.org/plugins
 3. Write or edit your notes using the editor.  
 4. Click **Save** to store your notes.
 
-### PSupport
+### Support
 If you have questions or issues, please reach out at [AdminHero.pro](https://adminhero.pro).
 
 ### Contributing
