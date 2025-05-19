@@ -1,3 +1,5 @@
+![AdminHero]([https://github.com/chisleynate/admin-hero/blob/main/image.jpg?raw=true](https://adminhero.pro/wp-content/uploads/2025/05/site-logo-03.webp))
+
 ## AdminHero
 Admin Hero for website administrators provides a fast, convenient way to capture important information right inside the WordPress dashboard. With a simple floating button in the admin bar, you can open a sleek, distraction-free modal to jot down notes, reminders, or project instructions. Notes are saved securely and persist across sessions, making it ideal for solo developers, client handoffs, or multi-admin teams. Whether you’re managing one site or dozens, Admin Hero keeps your thoughts organized and always within reach.
 
