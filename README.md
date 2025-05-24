@@ -1,6 +1,6 @@
 ![AdminHero](https://adminhero.pro/wp-content/uploads/2025/05/site-logo-03.webp)
 
-Admin Hero for website administrators provides a fast, convenient way to capture important information right inside the WordPress dashboard. With a simple floating button in the admin bar, you can open a sleek, distraction-free modal to jot down notes, reminders, or project instructions. Notes are saved securely and persist across sessions, making it ideal for solo developers, client handoffs, or multi-admin teams. Whether you’re managing one site or dozens, Admin Hero keeps your thoughts organized and always within reach.
+AdminHero for WordPress website administrators provides a fast, convenient way to capture important information right inside the WordPress dashboard. With a simple button in the admin bar, you can open a sleek, distraction-free modal to jot down notes, reminders, or project instructions. Notes are saved securely and persist across sessions, making it ideal for solo developers, client handoffs, or multi-admin teams. Whether you’re managing one site or dozens, Admin Hero keeps your thoughts organized and always within reach.
 
 Go **Pro** for some awesome features, with many more to come: [AdminHero.pro](https://adminhero.pro)
 
@@ -10,6 +10,7 @@ Go **Pro** for some awesome features, with many more to come: [AdminHero.pro](ht
 - **Draggable Modal:** Lets you click-and-drag the modal header to reposition it, remembers that position, and offers a “reset” link.
 - **Fullscreen Mode:** Toggles the modal to fill the viewport for complete distraction freedom.
 - **Frontend Notes:** Brings the same notes modal to your site’s front end.
+- **Floating Buttons:** A persistent floating button to open the modal, from the dashboard or frontend.
 
 Check out our other awesome plugins: [Admin Shift](https://wordpress.org/plugins/admin-shift) | [Truncate Text](https://wordpress.org/plugins/truncate-text)
 
@@ -21,7 +22,7 @@ Check out our other awesome plugins: [Admin Shift](https://wordpress.org/plugins
 5. Once installed, click **Activate Plugin**.
 
 ### Usage
-1. After activation, a note icon (📝) appears in the admin bar.  
+1. After activation, a AdminHero logo icon appears in the admin bar.  
 2. Click the icon to open the notes modal.  
 3. Write or edit your notes using the editor.  
 4. Click **Save** to store your notes.
