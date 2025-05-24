@@ -1,0 +1,58 @@
+/* Fullscreen Button */
+#admin-hero-modal .admin-hero-fullscreen-toggle {
+  position: absolute;
+  right: 20px;
+  top: 6px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 100010;
+  pointer-events: auto;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#admin-hero-modal .admin-hero-fullscreen-toggle i {
+  font-size: 15px;
+  color: #aaaaaa;
+}
+
+#admin-hero-modal .admin-hero-fullscreen-toggle:hover i {
+  color: #56ff00;
+}
+
+/* Fullscreen Feature Styles (with WP admin‑bar visible) */
+#admin-hero-modal.admin-hero-fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+  padding: 0 16px 16px 16px !important;
+  z-index: 99999 !important; /* below #wpadminbar (99999) */
+}
+
+/* swap the expand/compress icons */
+#admin-hero-modal.admin-hero-fullscreen
+  .admin-hero-fullscreen-toggle
+  i.fa-expand {
+  display: none;
+}
+#admin-hero-modal.admin-hero-fullscreen
+  .admin-hero-fullscreen-toggle
+  i.fa-compress {
+  display: inline-block;
+}
+#admin-hero-modal .admin-hero-fullscreen-toggle i.fa-compress {
+  display: none;
+}
+#admin-hero-modal .admin-hero-fullscreen-toggle i.fa-expand {
+  display: inline-block;
+}

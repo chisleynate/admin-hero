@@ -1,10 +1,10 @@
-=== Admin Hero ===
+=== AdminHero ===
 Contributors: nchisley
 Donate link: https://natechisley.com/donate
 Tags: admin, notes, productivity, admin bar, memo
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.0.13
+Stable tag: 1.0.19
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -32,7 +32,7 @@ Check out our other awesome plugins: [Admin Shift](https://wordpress.org/plugins
 5. Once installed, click **Activate Plugin**.
 
 == Usage ==
-1. After activation, a note icon (📝) appears in the admin bar.  
+1. After activation, an AdminHero logo icon appears in the admin bar.  
 2. Click the icon to open the notes modal.  
 3. Write or edit your notes using the editor.  
 4. Click **Save** to store your notes.
@@ -50,6 +50,18 @@ If you have questions or issues, please reach out at [AdminHero.pro](https://adm
 We welcome contributions! See our guidelines at [AdminHero.pro](https://adminhero.pro).
 
 == Changelog ==
+= 1.0.19 =
+- Minor style fixes.
+= 1.0.18 =
+- Free features introduced. Code stability update. Minor bug fixes.
+= 1.0.17 =
+- Bug patch.
+= 1.0.16 =
+- Bug patch.
+= 1.0.15 =
+- Bug patch.
+= 1.0.14 =
+- Code logic updates.
 = 1.0.13 =
 - Code stability update.
 = 1.0.12 =
