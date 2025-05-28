@@ -3,7 +3,7 @@
  * Plugin Name:       AdminHero
  * Plugin URI:        https://NateChisley.com/wordpress-plugins/
  * Description:       A button in the WordPress admin bar that opens a modal for taking notes.
- * Version:           1.0.19
+ * Version:           1.0.22
  * Requires at least: 5.0
  * Requires PHP:      7.2
  * Author:            Nate Chisley

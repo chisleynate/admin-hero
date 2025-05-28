@@ -1,4 +1,6 @@
-/* Admin Bar Button */
+/*******************************************************/
+/*** Admin Bar Button **********************************/
+/*******************************************************/
 #wp-admin-bar-admin-hero a {
   padding: 4px 8px 4px 8px !important;
   /*font-size: 18px;
@@ -35,7 +37,115 @@
   order: 0 !important;
 }
 
-/* Admin hero Modal */
+/*******************************************************/
+/*** Globals *******************************************/
+/*******************************************************/
+#admin-hero-modal p {
+  font-size: 1em !important;
+  color: #ffffff !important;
+  margin: 10px 0 10px 0 !important;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: normal !important;
+}
+
+#admin-hero-modal h1,
+#admin-hero-modal h2,
+#admin-hero-modal h3,
+#admin-hero-modal h4,
+#admin-hero-modal h5,
+#admin-hero-modal h6 {
+  font-family: "Roboto", sans-serif !important;
+  font-weight: bold !important;
+}
+
+#admin-hero-modal h1 {
+  font-size: 2em !important;
+  color: #ffffff !important;
+  margin: 10px 0 10px 0 !important;
+}
+
+#admin-hero-modal h2 {
+  font-size: 1.6em !important;
+  color: #ffffff !important;
+  margin: 10px 0 10px 0 !important;
+}
+
+#admin-hero-modal h3 {
+  font-size: 1.4em !important;
+  color: #ffffff !important;
+  margin: 10px 0 10px 0 !important;
+}
+
+#admin-hero-modal h4 {
+  font-size: 1.2em !important;
+  color: #ffffff !important;
+  margin: 10px 0 10px 0 !important;
+}
+
+#admin-hero-modal h5 {
+  font-size: 1em !important;
+  color: #ffffff !important;
+  margin: 10px 0 10px 0 !important;
+}
+
+#admin-hero-modal input,
+#admin-hero-modal select,
+#admin-hero-modal textarea {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 0.9em !important;
+  color: #fff !important;
+  background: #444 !important;
+  border: 1px solid #555 !important;
+  border-radius: 2px !important;
+  padding: 0.4em 0.4em 0.4em 0.4em !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  min-height: 35px !important;
+}
+
+#admin-hero-modal input:focus,
+#admin-hero-modal select:focus,
+#admin-hero-modal textarea:focus {
+  border: 1px solid #56ff00 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Buttons */
+#admin-hero-modal .ah-close-button,
+#admin-hero-modal .admin-hero-button,
+#admin-hero-modal button.admin-hero-button {
+  font-family: "Roboto", sans-serif !important;
+  padding: 8px 16px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  pointer-events: auto !important;
+  z-index: 100002 !important;
+  display: inline-block !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #50992b !important;
+  color: #ffffff !important;
+}
+
+#admin-hero-modal button.admin-hero-button:hover {
+  background: #56ff00 !important;
+}
+
+#admin-hero-modal button:focus,
+#admin-hero-modal a:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/*******************************************************/
+/*** Modal *********************************************/
+/*******************************************************/
 #admin-hero-modal,
 #admin-hero-modal * {
   box-sizing: border-box;
@@ -51,7 +161,7 @@
   height: 400px;
   max-height: 80vh;
   background: #333333;
-  padding: 0 16px 16px 16px;
+  padding: 0 10px 10px 10px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
@@ -158,7 +268,7 @@
 
 /* Settings Header */
 #admin-hero-modal #admin-hero-settings-header {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #e0e0e0;
   text-align: center;
@@ -166,73 +276,26 @@
   z-index: 100003;
 }
 
-/* Buttons */
-#admin-hero-modal button {
-  font-family: "Roboto", sans-serif !important;
-}
-
-#admin-hero-modal .button-pro {
-  margin-top: 10px;
-}
-
-#admin-hero-modal #admin-hero-save,
-#admin-hero-modal .button-pro {
-  background: #50992b;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
+#admin-hero-modal a.button-pro {
+  margin: 10px 0 10px 0 !important;
+  background: transparent !important;
+  color: #50992b !important;
+  font-size: 1.2em !important;
   text-decoration: none !important;
-  text-transform: uppercase;
-  pointer-events: auto !important;
-  z-index: 100002;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
+  border: 2px dotted #50992b !important;
+  text-transform: none !important;
+  line-height: 1.4 !important;
 }
 
-#admin-hero-modal .button-pro {
-  margin-bottom: 10px !important;
-}
-
-#admin-hero-modal .button-pro:hover {
-  background: #56ff00;
-}
-
-#admin-hero-modal .button-pro:focus {
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-#admin-hero-modal #admin-hero-save:hover {
-  background: #56ff00;
+#admin-hero-modal a.button-pro:hover {
+  margin: 10px 0 10px 0 !important;
+  background: transparent !important;
+  color: #56ff00 !important;
+  border: 2px dotted #56ff00 !important;
 }
 
 #admin-hero-modal #admin-hero-save i.fa-floppy-disk {
   font-size: 14px;
-}
-
-#admin-hero-modal #admin-hero-close-settings {
-  margin-top: auto;
-  margin-bottom: 0;
-  background: transparent;
-  color: #aaaaaa;
-  padding: 0 0 10px 0;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  pointer-events: auto !important;
-  z-index: 100002;
-}
-
-#admin-hero-modal #admin-hero-close-settings:hover {
-  color: red;
 }
 
 #admin-hero-modal #admin-hero-reset-modal {
@@ -254,16 +317,18 @@
   background: #56ff00;
 }
 
-/* Quill Editor */
+/*******************************************************/
+/*** Quill Editor **************************************/
+/*******************************************************/
 #admin-hero-modal #admin-hero-editor {
-  flex-grow: 1;
-  width: 100%;
+  flex-grow: 1 !important;
+  width: 100% !important;
   margin-bottom: 4px !important;
   background: #eeeeee !important;
   color: #333333 !important;
   border: 1px solid #eeeeee !important;
   border-radius: 4px !important;
-  z-index: 100002;
+  z-index: 100002 !important;
 }
 
 #admin-hero-modal #admin-hero-editor .ql-editor {
@@ -301,24 +366,6 @@
   margin-bottom: 8px !important;
 }
 
-#admin-hero-modal h3 {
-  font-size: 1.8em !important;
-  color: #eed13b !important;
-  margin: 10px 0 10px 0 !important;
-}
-
-#admin-hero-modal h4 {
-  font-size: 1.4em !important;
-  color: #eed13b !important;
-  margin: 10px 0 10px 0 !important;
-}
-
-#admin-hero-modal h5 {
-  font-size: 1.1em !important;
-  color: #eed13b !important;
-  margin: 10px 0 10px 0 !important;
-}
-
 #admin-hero-modal #admin-hero-editor li {
   margin-bottom: 4px !important;
 }
@@ -326,26 +373,26 @@
 #admin-hero-modal #admin-hero-editor:focus,
 #admin-hero-modal #admin-hero-editor:focus-within,
 #admin-hero-modal #admin-hero-editor:focus-visible {
-  outline: none;
+  outline: none !important;
   border: 1px solid #56ff00 !important;
 }
 
 /* Style Quill Toolbar */
 #admin-hero-modal .ql-toolbar.ql-snow {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex !important;
+  flex-wrap: wrap !important;
   align-items: center !important;
   justify-content: flex-start !important;
   background: #aaaaaa !important;
   border: 1px solid #aaaaaa !important;
   border-radius: 4px !important;
   margin-bottom: 4px !important;
-  padding: 4px;
+  padding: 4px !important;
 }
 
 #admin-hero-modal .ql-toolbar.ql-snow .ql-formats {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
   gap: 0 !important;
   margin-right: 0 !important;
 }
@@ -362,9 +409,9 @@
   line-height: 1.53846153 !important;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   padding-right: 0 !important;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  margin-right: 8px;
+  border: 1px solid #aaa !important;
+  border-radius: 4px !important;
+  margin-right: 8px !important;
 }
 
 /* Style the picker dropdown items */
@@ -396,6 +443,11 @@
   button:not(.ql-undo):not(.ql-redo).ql-active
   .ql-fill {
   fill: #56ff00 !important;
+  background-color: transparent !important;
+}
+
+#admin-hero-modal .ql-toolbar.ql-snow .ql-formats button:hover {
+  background-color: transparent !important;
 }
 
 /* Default dropdown label + arrow */
@@ -541,11 +593,11 @@
 #admin-hero-modal #admin-hero-settings-panel.admin-hero-settings-overlay {
   position: absolute;
   top: 37px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  background: #444444;
-  padding: 8px;
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+  background: #282828;
+  padding: 15px;
   border-radius: 4px;
   box-sizing: border-box;
   display: none;
@@ -708,15 +760,15 @@
   margin-left: 8px;
 }
 
-/* Info Panel */
+/*** Info Panel ***/
 #admin-hero-modal #admin-hero-info-panel.admin-hero-info-overlay {
   position: absolute;
   top: 37px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  background: #444444;
-  padding: 8px;
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+  background: #282828;
+  padding: 15px;
   border-radius: 4px;
   box-sizing: border-box;
   display: none;
@@ -728,13 +780,53 @@
   z-index: 100004;
 }
 
+/* Info Header */
 #admin-hero-modal #admin-hero-info-header {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #e0e0e0;
   text-align: center;
   padding: 8px 0 10px 0;
   z-index: 100003;
+}
+
+/* Info Footer Save */
+#admin-hero-modal .footer-save {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* Panel Promo */
+#admin-hero-modal .ah-pro-promo-1 {
+  width: 100% !important;
+  max-width: 420px !important;
+  margin: 0 auto !important;
+  padding: 10px 0 0 0;
+  font-size: 1.2em !important;
+  line-height: 1.4 !important;
+  color: yellow !important;
+}
+
+/* Panel Footer */
+#admin-hero-modal .ah-panel-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0 0 0;
+}
+
+/*** Panel Close Button ***/
+#admin-hero-modal .ah-panel-footer button.ah-close-button {
+  background: transparent !important;
+  color: #aaaaaa !important;
+}
+#admin-hero-modal .ah-panel-footer button.ah-close-button:hover {
+  background: transparent !important;
+  color: red !important;
 }
 
 /* Add Font Awesome icons for undo and redo buttons */
@@ -903,6 +995,93 @@
   text-decoration: none;
 }
 
+#admin-hero-modal hr {
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #444;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar for Info Panel */
+#admin-hero-modal ::-webkit-scrollbar {
+  width: 0.5em !important;
+  background-color: transparent !important;
+}
+
+#admin-hero-modal ::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+#admin-hero-modal ::-webkit-scrollbar-thumb {
+  background-color: #888888 !important;
+  border-radius: 2px !important;
+  cursor: pointer !important;
+}
+
+#admin-hero-modal ::-webkit-scrollbar-thumb:hover {
+  background-color: #aaaaaa !important;
+  cursor: pointer !important;
+}
+
+/* copy button styling */
+#admin-hero-modal .admin-hero-copy-btn,
+#admin-hero-modal .admin-hero-link-btn {
+  background: none;
+  border: none;
+  margin-left: 0.5em;
+  cursor: pointer;
+  font-size: 1em;
+  color: #aaaaaa;
+  padding: 0;
+}
+#admin-hero-modal .admin-hero-copy-btn:hover,
+#admin-hero-modal .admin-hero-link-btn:hover {
+  color: #56ff00;
+}
+#admin-hero-modal .admin-hero-copy-btn:focus,
+#admin-hero-modal .admin-hero-link-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+#admin-hero-modal .admin-hero-copy-btn .fas.fa-check {
+  color: #56ff00;
+}
+
+/* link button styling */
+/* wrap inputs + buttons 
+.admin-hero-info-input-wrap {
+  display: inline-flex;
+  align-items: center;
+}*/
+/* copy & link buttons 
+.admin-hero-copy-btn,
+.admin-hero-link-btn {
+  background: none;
+  border: none;
+  margin-left: 0.5em;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1em;
+  color: inherit;
+}
+.admin-hero-link-btn {
+  text-decoration: none;
+}*/
+/* hover states 
+.admin-hero-copy-btn:hover i,
+.admin-hero-link-btn:hover i {
+  color: #56ff00;
+}*/
+/* ensure the icon sits nicely 
+.admin-hero-copy-btn i,
+.admin-hero-link-btn i {
+  width: 1em;
+  height: 1em;
+}*/
+
 /*********************/
 /* Responsive Design */
 /*********************/
@@ -960,97 +1139,5 @@
 
   #admin-hero-floating-button {
     padding: 10px;
-  }
-}
-
-/* Client Info panel styling */
-.client-info-field {
-  margin-bottom: 12px;
-}
-.client-info-label {
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-.client-info-display {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-.client-info-value {
-  flex: 1;
-  color: #eee;
-}
-.client-info-input-wrapper {
-  display: flex;
-  gap: 4px;
-}
-.client-info-input {
-  flex: 1;
-  padding: 4px 8px;
-  border: 1px solid #555;
-  border-radius: 4px;
-  background: #222;
-  color: #eee;
-}
-.admin-hero-copy-btn,
-.admin-hero-save-client-btn {
-  background: none;
-  border: none;
-  color: #56ff00;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 1;
-}
-.admin-hero-copy-btn:hover,
-.admin-hero-save-client-btn:hover {
-  color: #a8ff70;
-}
-
-#admin-hero-modal hr {
-  display: block;
-  width: 100%;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #222222;
-  margin: 0;
-  padding: 0;
-}
-
-/* Scrollbar */
-#admin-hero-settings-panel {
-  --scrollbar-color-thumb: #666666;
-  --scrollbar-color-track: #333333;
-  --scrollbar-width: thin;
-  --scrollbar-width-legacy: 0.5rem;
-}
-@supports (scrollbar-width: auto) {
-  #admin-hero-settings-panel {
-    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-    scrollbar-width: var(--scrollbar-width);
-  }
-}
-@supports selector(::-webkit-scrollbar) {
-  #admin-hero-settings-panel {
-    text-align: justify;
-  }
-  main:has(input[name="fix-safari"]:checked) .scroller:hover {
-    --safari-fix: ; /* This custom property forces Safari to re-render the scrollbars on hover */
-  }
-  #admin-hero-settings-panel::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-  #admin-hero-settings-panel::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  #admin-hero-settings-panel:hover::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color-thumb);
-  }
-  #admin-hero-settings-panel:hover::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track);
-  }
-  #admin-hero-settings-panel::-webkit-scrollbar {
-    max-width: var(--scrollbar-width-legacy);
-    max-height: var(--scrollbar-width-legacy);
   }
 }

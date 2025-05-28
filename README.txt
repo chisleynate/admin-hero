@@ -4,7 +4,7 @@ Donate link: https://natechisley.com/donate
 Tags: admin, notes, productivity, admin bar, memo
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.0.19
+Stable tag: 1.0.22
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -50,6 +50,12 @@ If you have questions or issues, please reach out at [AdminHero.pro](https://adm
 We welcome contributions! See our guidelines at [AdminHero.pro](https://adminhero.pro).
 
 == Changelog ==
+= 1.0.21 =
+- Core logic updates.
+= 1.0.21 =
+- Style updates.
+= 1.0.20 =
+- Info panel updates. Minor style updates. Minor logic improvements.
 = 1.0.19 =
 - Minor style fixes.
 = 1.0.18 =

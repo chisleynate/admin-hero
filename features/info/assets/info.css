@@ -1,77 +1,162 @@
-#admin-hero-info-panel .admin-hero-info-content {
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-content {
   background: transparent;
   border: none;
   color: #eee;
   text-align: center;
   margin-top: 0;
   padding: 0 !important;
-  margin: 0 !important;
+  margin: 0 0 auto 0 !important;
   width: 100%;
-  height: 100%;
+  height: auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* make the form full-width in the modal */
-#admin-hero-info-panel .admin-hero-info-content form#admin-hero-info-form {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 700px;
+/* Form */
+#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  form#admin-hero-info-form {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 8px !important;
+  box-sizing: border-box !important;
 }
 
-/* space out each field */
-#admin-hero-info-panel .admin-hero-info-content p {
-  margin: 4px 0 4px 0;
+/* Legend */
+#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  form#admin-hero-info-form
+  legend {
+  text-align: center !important;
+  padding: 6px 8px 4px 8px !important;
+  font-size: 1em !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  background: #282828 !important;
+}
+
+/* Fieldset */
+#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  form#admin-hero-info-form
+  fieldset {
+  margin: 0 !important;
+  padding: 10px !important;
+  width: 30% !important;
+  border-radius: 8px !important;
+  border: none !important;
+  flex-grow: 1 !important;
+  flex-shrink: 0 !important;
+  min-width: 280px !important;
+  max-width: 960px !important;
+}
+
+#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  fieldset:nth-child(odd) {
+  background: #555555 !important;
+}
+
+#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  fieldset:nth-child(even) {
+  background: #666666 !important;
+}
+
+/* Item Wrapper */
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-content fieldset p {
+  margin: 4px 0 4px 0 !important;
   color: #eeeeee !important;
   line-height: 1.4 !important;
   font-size: 14px !important;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
 }
 
 /* Labels */
-#admin-hero-info-panel .admin-hero-info-content label {
-  display: block;
-  font-weight: bold;
-  margin: 0;
-  color: #eee;
-  width: 30%;
-  text-align: left;
-  flex-grow: 1;
-  padding: 8px 8px 0 0 !important;
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-content label {
+  display: block !important;
+  font-weight: bold !important;
+  margin: 0 !important;
+  color: #eee !important;
+  width: 30% !important;
+  text-align: left !important;
+  flex-grow: 1 !important;
+  padding: 10px 8px 0 0 !important;
+  font-size: 0.9em !important;
 }
+
+/* Input & Copy Button Wrapper */
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-input-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: 60% !important;
+  flex-grow: 1 !important;
+}
+
+/* Update Button 
+#admin-hero-modal #admin-hero-info-panel button#admin-hero-info-save {
+}*/
 
 /* Inputs */
-#admin-hero-info-panel .admin-hero-info-content input.regular-text {
-  width: 60%;
-  padding: 0.4em 0.6em;
-  background: #333;
-  border: 1px solid #555;
-  color: #fff;
-  border-radius: 3px;
-  flex-grow: 1;
-}
+/*#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  input.regular-text,
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-content select {
+  width: 100% !important;
+  padding: 0.4em 0.6em !important;
+  background: #333 !important;
+  border: 1px solid #555 !important;
+  color: #fff !important;
+  border-radius: 3px !important;
+  flex-grow: 1 !important;
+  font-size: 12px !important;
+}*/
 
-#admin-hero-info-panel .admin-hero-info-content input.regular-text:focus {
-  border: 1px solid #56ff00;
+/*#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  input.regular-text:focus,
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-content select:focus {
+  border: 1px solid #56ff00 !important;
   outline: none !important;
   box-shadow: none !important;
-}
+}*/
 
-#admin-hero-info-panel
+/*#admin-hero-modal
+  #admin-hero-info-panel
   .admin-hero-info-content
-  input.regular-text:focus-visible {
+  input.regular-text:focus-visible,
+#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  select:focus-visible {
   outline: none !important;
-}
+}*/
 
 /* Update button */
-#admin-hero-info-panel .admin-hero-info-content #admin-hero-info-save {
+/*#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  #admin-hero-info-save {
   background: #50992b;
   color: white;
   padding: 8px 16px;
@@ -83,34 +168,16 @@
   text-decoration: none !important;
   text-transform: uppercase;
   margin: 6px auto !important;
-}
-#admin-hero-info-panel .admin-hero-info-content #admin-hero-info-save:hover {
+}*/
+/*#admin-hero-modal
+  #admin-hero-info-panel
+  .admin-hero-info-content
+  #admin-hero-info-save:hover {
   background: #56ff00;
-}
-
-/* Close button */
-#admin-hero-modal #admin-hero-close-info {
-  margin-top: auto;
-  margin-bottom: 0;
-  background: transparent;
-  color: #aaaaaa;
-  padding: 0 0 10px 0;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  pointer-events: auto !important;
-  z-index: 100002;
-}
-
-#admin-hero-modal #admin-hero-close-info:hover {
-  background: transparent;
-  color: red;
-}
+}*/
 
 /* reuse the same fade in/out rules you already have for #admin-hero-overlay-info */
-#admin-hero-overlay-info {
+#admin-hero-modal #admin-hero-overlay-info {
   position: absolute;
   top: 0;
   left: 0;
@@ -132,13 +199,13 @@
   z-index: 100006;
 }
 
-#admin-hero-overlay-info.admin-hero-visible {
+#admin-hero-modal #admin-hero-overlay-info.admin-hero-visible {
   opacity: 1; /* reveal */
   pointer-events: auto; /* allow clicks if needed (though none) */
 }
 
 /* icon + text styling */
-#admin-hero-overlay-info .save-icon {
+#admin-hero-modal #admin-hero-overlay-info .save-icon {
   display: block;
   margin: 0 auto 5px;
   font-size: 28px;
@@ -146,18 +213,62 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-#admin-hero-overlay-info span {
+#admin-hero-modal #admin-hero-overlay-info span {
   display: block; /* ensure text sits below the icon */
   text-align: center;
 }
 
-.admin-hero-info-pro {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-pro {
   width: 100%;
-  margin: 0 auto;
-  max-width: 700px;
-  padding: 0 0 0 0;
+  max-width: 960px;
+}
+
+/* Client Info panel styling */
+/*#admin-hero-modal .client-info-field {
+  margin-bottom: 12px;
+}
+#admin-hero-modal .client-info-label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+#admin-hero-modal .client-info-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+#admin-hero-modal .client-info-value {
+  flex: 1;
+  color: #eee;
+}
+#admin-hero-modal .client-info-input-wrapper {
+  display: flex;
+  gap: 4px;
+}
+#admin-hero-modal .client-info-input {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #222;
+  color: #eee;
+}
+#admin-hero-modal .admin-hero-copy-btn,
+#admin-hero-modal .admin-hero-save-client-btn {
+  background: none;
+  border: none;
+  color: #56ff00;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+#admin-hero-modal .admin-hero-copy-btn:hover,
+#admin-hero-modal .admin-hero-save-client-btn:hover {
+  color: #a8ff70;
+}*/
+
+/* Link Button */
+#admin-hero-modal #admin-hero-info-panel .admin-hero-info-content a.disabled {
+  color: #777777 !important;
+  cursor: not-allowed !important;
 }

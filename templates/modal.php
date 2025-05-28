@@ -26,6 +26,7 @@
         </div>
     </div>
 
+    <!-- ==== SETTINGS PANEL ==== -->
     <div id="admin-hero-settings-panel" class="admin-hero-settings-overlay">
         <div id="admin-hero-settings-header">Settings</div>
         <div class="admin-hero-settings-content">
@@ -63,10 +64,12 @@
                     </div>
                 <?php endif; ?>
             <?php endif; ?>
-
-            <button id="admin-hero-close-settings" class="admin-hero-button">Close</button>
+        </div>
+        <div class="ah-panel-footer ah-settings-footer">
+            <button id="admin-hero-close-settings" class="ah-close-button">Close</button>
         </div>
     </div>
+    <!-- ==== END SETTINGS PANEL ==== -->
 
     <!-- ==== INFO PANEL ==== -->
     <div id="admin-hero-info-panel" class="admin-hero-info-overlay">
@@ -80,7 +83,9 @@
                 include $file;
             }
             ?>
-            <button id="admin-hero-close-info" class="admin-hero-button">Close</button>
+        </div>
+        <div class="ah-panel-footer ah-info-footer">
+            <button id="admin-hero-close-info" class="ah-close-button">Close</button>
         </div>
     </div>
     <!-- ==== END INFO PANEL ==== -->

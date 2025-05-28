@@ -10,6 +10,7 @@
             this.cacheElements();
             this.bindEvents();
             this.initFeatures();
+            this.enforceFrontendFloater();      // ◀ NEW: sync on startup
             if (this.is_admin && this.is_pro) this.initPro();
         },
 
@@ -24,6 +25,10 @@
             this.settingsPanel    = document.getElementById('admin-hero-settings-panel');
             this.infoToggle       = document.getElementById('admin-hero-info-toggle');
             this.infoPanel        = document.getElementById('admin-hero-info-panel');
+
+            // ◀ NEW: header icons for frontend / floater
+            this.frontendIcon     = document.querySelector('.admin-hero-frontend-icon');
+            this.floaterIcon      = document.querySelector('.admin-hero-floater-icon');
         },
 
         bindEvents() {
@@ -92,6 +97,11 @@
             this.infoPanel
                 ?.querySelector('#admin-hero-close-info')
                 ?.addEventListener('click', () => this.infoPanel.style.display = 'none');
+
+            // ◀ NEW: listen for any feature toggle
+            document.addEventListener('admin-hero-feature-toggle', ({ detail }) => {
+                this.handleFeatureToggle(detail.featureId, detail.enabled);
+            });
         },
 
         apiCall(action, payload, retries = 2) {
@@ -156,10 +166,7 @@
             const container = this.settingsPanel?.querySelector('.admin-hero-settings-content');
             if (!container || !Array.isArray(this.features)) return;
 
-            // Pick insertion point:
-            // 1) before the Pro-features block
-            // 2) else before the Get Pro button
-            // 3) else before the Close button
+            // determine where to insert toggles
             const refElement =
                 container.querySelector('.admin-hero-pro-features')
                 || container.querySelector('.get-pro-button')
@@ -179,6 +186,10 @@
                 const input = document.createElement('input');
                 input.type    = 'checkbox';
                 input.checked = feature.enabled;
+
+                // ◀ NEW: tag each toggle
+                input.dataset.featureId = feature.id;
+
                 input.addEventListener('change', () => {
                     const settingKey = `settings[${feature.id}]`;
                     const settingVal = input.checked ? '1' : '0';
@@ -200,6 +211,60 @@
 
                 container.insertBefore(line, refElement);
             });
+        },
+
+        // ◀ NEW: enforce frontend↔floater rules
+        enforceFrontendFloater() {
+            const fe = document.querySelector('input[data-feature-id="frontend"]');
+            const fl = document.querySelector('input[data-feature-id="floater"]');
+            if (!fe || !fl) return;
+
+            if (!fe.checked) {
+                // frontend notes off → floater off & disabled
+                fl.checked = false;
+                fl.disabled = true;
+            } else {
+                // frontend notes on → floater enabled
+                fl.disabled = false;
+                if (!fl.checked) {
+                    fl.checked = true;
+                    // auto-persist
+                    this.apiCall('admin_hero_save_settings', {
+                        nonce: this.nonceInput.value || this.nonce,
+                        'settings[floater]': '1'
+                    }).catch(console.error);
+                }
+            }
+            this.updateHeaderIcons();
+        },
+
+        handleFeatureToggle(featureId, enabled) {
+            if (featureId === 'frontend' || featureId === 'floater') {
+                this.enforceFrontendFloater();
+            }
+        },
+
+        // ◀ NEW: show/hide header icons per your 3 states
+        updateHeaderIcons() {
+            const fe = document.querySelector('input[data-feature-id="frontend"]');
+            const fl = document.querySelector('input[data-feature-id="floater"]');
+            if (!this.frontendIcon || !this.floaterIcon || !fe) return;
+
+            if (!fe.checked) {
+                // notes off → both hidden
+                this.frontendIcon.style.display = 'none';
+                this.floaterIcon.style.display  = 'none';
+                return;
+            }
+            if (fe.checked && !fl.checked) {
+                // notes on & floater off → show notes icon, hide floater
+                this.frontendIcon.style.display = 'block';
+                this.floaterIcon.style.display  = 'none';
+                return;
+            }
+            // both on → both hidden
+            this.frontendIcon.style.display = 'none';
+            this.floaterIcon.style.display  = 'none';
         },
 
         initPro() {
