@@ -1,0 +1,7 @@
+/* Persistence header‑icon styling */
+.admin-hero-persistence-icon {
+  font-size: 15px !important;
+  color: #56ff00 !important;
+  margin: 0 5px !important;
+  cursor: default !important;
+}

@@ -1,0 +1,67 @@
+/* Floating Button */
+#admin-hero-floating-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  width: 40px !important;
+  height: 40px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  z-index: 100000 !important;
+  transition: background 0.2s ease !important;
+  padding: 0 !important;
+}
+#admin-hero-floating-button:hover {
+  background: transparent !important;
+}
+#admin-hero-floating-button img {
+  border-radius: 4px;
+  width: 40px !important;
+  height: 40px !important;
+  opacity: 1 !important;
+  transition: opacity 0.2s ease !important;
+}
+#admin-hero-floating-button:hover img {
+  opacity: 0.7 !important;
+}
+
+/* Disabled hint for the setting line */
+#admin-hero-modal
+  .admin-hero-setting-line.admin-hero-setting-floater-d.disabled
+  .switch::after {
+  content: "Floater disabled" !important;
+  display: block !important;
+  font-size: 12px !important;
+  color: #888 !important;
+  text-align: right !important;
+  margin: 4px 0 0 0 !important;
+  width: 200px !important;
+  float: right !important;
+}
+#admin-hero-modal
+  .admin-hero-setting-line.admin-hero-setting-floater-d.disabled
+  .switch
+  input,
+#admin-hero-modal
+  .admin-hero-setting-line.admin-hero-setting-floater-d.disabled
+  .switch
+  .slider {
+  display: none !important;
+}
+
+/* Header-icon styling */
+#admin-hero-modal #admin-hero-settings-icons .admin-hero-floater-d-icon i {
+  font-size: 12px !important;
+  color: #333333 !important;
+  margin: 0 5px !important;
+  cursor: default !important;
+  padding: 2px 3px !important;
+  background-color: #56ff00 !important;
+  border-radius: 4px !important;
+}

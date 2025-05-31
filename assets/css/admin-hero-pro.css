@@ -1,0 +1,69 @@
+.settings_page_admin-hero-pro #wpwrap {
+  background: #222222 !important;
+  color: #ffffff !important;
+}
+
+.admin-hero-pro-wrap {
+  margin: 20px 20px 20px 0 !important;
+}
+
+.settings_page_admin-hero-pro h1,
+.settings_page_admin-hero-pro h2,
+.settings_page_admin-hero-pro h3 {
+  color: #ffffff !important;
+}
+
+/* Container & logo */
+.admin-hero-pro-wrap .admin-hero-pro-logo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Collapse the empty <th> so the field moves all the way left */
+.wrap.admin-hero-pro-wrap table.form-table th {
+  display: none;
+}
+/* Remove default padding on the data <td> */
+.wrap.admin-hero-pro-wrap table.form-table td {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Align the input and inline status */
+.admin-hero-pro-input {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.admin-hero-pro-status {
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+/* Per-state colors (✔, ⚠, ✖) */
+.admin-hero-pro-status.valid {
+  color: #28a745 !important;
+}
+.admin-hero-pro-status.expired {
+  color: #ffc107 !important;
+}
+.admin-hero-pro-status.invalid,
+.admin-hero-pro-status.error {
+  color: #dc3545 !important;
+}
+
+/* Tuck the Save Changes button back up under the form */
+.admin-hero-pro-wrap .submit {
+  margin-top: 5px !important;
+}
+
+/* Notice */
+.admin-hero-pro-wrap .notice {
+  background: #333333 !important;
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+  border-right-width: 0 !important;
+}

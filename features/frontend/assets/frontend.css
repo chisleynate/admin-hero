@@ -1,0 +1,7 @@
+/* Frontend header icon (same styling as other features) */
+#admin-hero-modal #admin-hero-settings-icons .admin-hero-frontend-icon {
+  font-size: 15px !important;
+  color: #56ff00 !important;
+  margin: 0 5px !important;
+  cursor: default !important;
+}

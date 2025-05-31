@@ -1,0 +1,99 @@
+/* only show move-cursor when dragging is enabled */
+#admin-hero-modal.dragging-enabled #admin-hero-header {
+  cursor: move;
+}
+
+/* slight feedback while actively dragging */
+#admin-hero-modal.dragging-enabled.admin-hero-dragging {
+  opacity: 0.9;
+}
+
+/* header icon styling (adjust spacing as needed) */
+.admin-hero-dragging-icon {
+  font-size: 15px !important;
+  color: #56ff00 !important;
+  margin: 0 5px !important;
+  cursor: default !important;
+}
+
+/* Hide toggle & icon on fullscreens */
+#admin-hero-modal.admin-hero-fullscreen .admin-hero-dragging-icon {
+  display: none !important;
+}
+
+#admin-hero-modal.admin-hero-fullscreen
+  .admin-hero-setting-line.admin-hero-setting-dragging
+  .slider,
+#admin-hero-modal.admin-hero-fullscreen .admin-hero-reset-link {
+  display: none !important;
+}
+
+#admin-hero-modal.admin-hero-fullscreen
+  .admin-hero-setting-line.admin-hero-setting-dragging
+  .switch::after {
+  content: "Unavailable in fullscreen";
+  display: block;
+  font-size: 12px;
+  color: #888;
+  text-align: right;
+  margin: -27px 0 0 0;
+  width: 200px;
+  float: right;
+}
+
+#admin-hero-modal.admin-hero-fullscreen #admin-hero-header {
+  cursor: default !important;
+}
+
+/* Reset‑link styling */
+#admin-hero-modal .admin-hero-reset-link {
+  margin-right: 8px;
+  margin-left: auto;
+  font-size: 14px;
+  color: #50992b;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#admin-hero-modal .admin-hero-reset-link:hover,
+#admin-hero-modal .admin-hero-reset-link:focus,
+#admin-hero-modal .admin-hero-reset-link:active {
+  color: #56ff00 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure the reset link sits flush before the switch */
+.admin-hero-setting-line.admin-hero-setting-dragging .admin-hero-reset-link {
+  vertical-align: middle;
+}
+
+/* Hide toggle & icon on small screens */
+@media (max-width: 781px) {
+  .admin-hero-dragging-icon {
+    display: none !important;
+  }
+
+  .admin-hero-setting-line.admin-hero-setting-dragging .slider {
+    display: none !important;
+  }
+
+  .admin-hero-setting-line.admin-hero-setting-dragging .switch::after {
+    content: "Unavailable on mobile";
+    display: block;
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    margin: -27px 0 0 0;
+    width: 200px;
+    float: right;
+  }
+
+  #admin-hero-header {
+    cursor: default !important;
+  }
+
+  .admin-hero-reset-link {
+    display: none !important;
+  }
+}

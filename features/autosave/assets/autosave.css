@@ -1,0 +1,38 @@
+/* Overlay */
+#admin-hero-overlay {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#admin-hero-overlay.admin-hero-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Autosave header icon */
+#admin-hero-modal #admin-hero-settings-icons i.autosave-header-icon {
+  font-size: 15px !important;
+  color: #56ff00 !important;
+  margin: 0 5px !important;
+  cursor: default !important;
+}
+
+.admin-hero-autosave-icon {
+  font-size: 15px !important;
+  color: #56ff00 !important;
+  margin: 0 5px !important;
+  cursor: default !important;
+}
+
+/* Autosave icon in overlay */
+#admin-hero-overlay .autosave-icon {
+  display: block !important;
+  margin: 0 auto 5px;
+  font-size: 28px !important;
+  color: #56ff00 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
