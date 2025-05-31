@@ -170,7 +170,7 @@
   flex-wrap: wrap;
   overflow: hidden;
   visibility: visible !important;
-  z-index: 100001;
+  z-index: 2147483646;
   font-family: "Roboto", sans-serif !important;
 }
 
@@ -209,9 +209,16 @@
   justify-content: center;
 }
 
+/* Settings & Info Button */
+#admin-hero-modal .admin-hero-settings-toggle,
+#admin-hero-modal .admin-hero-info-toggle {
+  left: auto;
+  right: auto;
+}
+
 /* Settings Icon */
 #admin-hero-modal .admin-hero-settings-toggle {
-  left: -6px;
+  right: 50px;
   top: 6px;
 }
 
@@ -226,7 +233,7 @@
 
 /* Info Icon */
 #admin-hero-modal .admin-hero-info-toggle {
-  left: 20px;
+  right: 75px;
   top: 6px;
 }
 
@@ -242,7 +249,7 @@
 /* New Container for Enabled Settings Icons */
 #admin-hero-modal #admin-hero-settings-icons {
   position: absolute;
-  left: 46px;
+  left: 0;
   top: 6px;
   height: 25px;
   display: flex;
@@ -253,7 +260,7 @@
 
 /* Close Button */
 #admin-hero-modal .admin-hero-close-btn {
-  right: -6px;
+  right: 0;
   top: 6px;
 }
 

@@ -1,67 +1,103 @@
-=== AdminHero Pro ===
+=== AdminHero ===
 Contributors: nchisley
-Purchase link: https://adminhero.pro/downloads/admin-hero-pro/
+Donate link: https://natechisley.com/donate
 Tags: admin, notes, productivity, admin bar, memo
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.0.12
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
-A powerful Pro extension to Admin Hero that unlocks real‑time autosave, a draggable modal with position memory, fullscreen mode, persistent notes across navigation, and more.
+Admin notes for website administrators, accessible via a modal that lets you write, edit, and save notes directly within the WordPress dashboard.
 
 == Description ==
-Admin Hero Pro builds on the free core plugin by adding:
-* **Autosave Notes:** Continuously saves your note content as you type (and on close), with visual “autosaved” feedback.
-* **Persistence Mode:** Remembers whether the modal was open (and its position/fullscreen state) across page loads and navigation.
-* **Dragging Modal:** Lets you click-and-drag the modal header to reposition it, remembers that position, and offers a “reset” link.
-* **Floater (Dashboard):** Adds a convenient and persistent floating button to access your Hero from anywhere in the dashboard.
-* **Frontend Mode:** Brings all the same functionality to your site’s front end.
+Admin Hero for website administrators provides a fast, convenient way to capture important information right inside the WordPress dashboard. With a simple floating button in the admin bar, you can open a sleek, distraction-free modal to jot down notes, reminders, or project instructions. Notes are saved securely and persist across sessions, making it ideal for solo developers, client handoffs, or multi-admin teams. Whether you're managing one site or dozens, Admin Hero keeps your thoughts organized and always within reach. Toggles the modal to fill the viewport for complete distraction freedom.
 
-Perfect for power users and agencies who need an advanced, always‑available note system directly inside WordPress.
+Go **Pro** for some awesome features, with many more to come: [AdminHero.pro](https://adminhero.pro)
+
+### Pro features
+- **Autosave Notes:** Continuously saves your note content as you type (and on close), with visual “autosaved” feedback.
+- **Persistence Mode:** Remembers whether the modal was open (and its position/fullscreen state) across page loads and navigation.
+- **Dragging Modal:** Lets you click-and-drag the modal header to reposition it, remembers that position, and offers a “reset” link.
+- **Floater (Dashboard):** Adds a convenient and persistent floating button to access your Hero from anywhere in the dashboard.
+- **Frontend Mode:** Brings all the same functionality to your site’s front end.
+
+Check out our other awesome plugins: [Admin Shift](https://wordpress.org/plugins/admin-shift) | [Truncate Text](https://wordpress.org/plugins/truncate-text)
 
 == Installation ==
-1. Purchase **Admin Hero Pro** from the link above and download `admin-hero-pro.zip`.
-2. In your WP dashboard, go to **Plugins → Add New → Upload Plugin**.
-3. Choose `admin-hero-pro.zip` and click **Install Now**.
-4. Enter your license key under **Settings → Admin Hero Pro** to activate and enable automatic updates.
+1. Log in to your WordPress site as an administrator.  
+2. Go to the **Plugins** section in the dashboard.  
+3. Click **Add New** → **Upload Plugin**.  
+4. Choose the `admin-hero.zip` file and click **Install Now**.  
+5. Once installed, click **Activate Plugin**.
 
 == Usage ==
-1. After activation, Pro feature toggles appear under **Settings** (gear icon).
-2. Configure which Pro features you want (autosave, fullscreen, draggable modal, etc.).
-3. Use the logo button in the admin bar to open your Hero modal.
-4. All changes are autosaved (if enabled), and your notes persist exactly how you left them.
-5. Enjoy the extended Info panel (info icon).
+1. After activation, an AdminHero logo icon appears in the admin bar.  
+2. Click the icon to open the notes modal.  
+3. Write or edit your notes using the editor.  
+4. Click **Save** to store your notes.
+5. Use the info panel to store important client info.
 
-=== License ===
-AdminHero Pro is licensed under GPLv2 or later. You can read the full EULA here: https://adminhero.pro/wp-content/eula/EULA.txt
+== Screenshots ==
+1. Default notes modal view
+2. Settings panel
+3. Autosave in action
+4. Admin bar button location
 
-== Screenshots ==  
+== Support ==
+If you have questions or issues, please reach out at [AdminHero.pro](https://adminhero.pro).
+
+== Contributing ==
+We welcome contributions! See our guidelines at [AdminHero.pro](https://adminhero.pro).
 
 == Changelog ==
-= 1.0.12 =
-* Bug fix and feature stability.
-= 1.0.11 =
-* Bug fix.
-= 1.0.10 =
-* Bug fix.
-= 1.0.9 =
-* Auto-update fix.
+= 1.2.6 =
+- Feature bug fixes and stability.
+= 1.2.5 =
+- Feature bug fixes.
+= 1.2.4 =
+- Logic updates.
+= 1.2.3 =
+- Style updates.
+= 1.2.2 =
+- Info panel updates. Minor style updates. Minor logic improvements.
+= 1.2.1 =
+- Minor style fixes.
+= 1.2.0 =
+- Free features introduced. Code stability update. Minor bug fixes.
+= 1.1.8 =
+- Bug patch.
+= 1.1.7 =
+- Bug patch.
+= 1.1.6 =
+- Bug patch.
+= 1.1.5 =
+- Code logic updates.
+= 1.1.4 =
+- Code stability update.
+= 1.1.3 =
+- Code stability update.
+= 1.1.2 =
+- Code stability update.
+= 1.1.1 =
+- Pro links updated.
+= 1.1.0 =
+- Pro links added.
 = 1.0.8 =
-* Redirect fix.
+- UI improvements.
 = 1.0.7 =
-* Bug fixes.
+- Styling adjustments.
 = 1.0.6 =
-* Bug fixes.
+- Styling adjustments.
 = 1.0.5 =
-* Bug fixes.
+- Header spacing adjustment.
 = 1.0.4 =
-* Bug fixes.
+- Minor bug fixes.
 = 1.0.3 =
-* Bug fixes.
+- Minor functionality fixes.
 = 1.0.2 =
-* Bug fixes.
+- Styling updates.
 = 1.0.1 =
-* Bug fixes.
+- Admin bar button improvement.
 = 1.0.0 =
-* Initial Pro release with autosave, draggable modal, fullscreen mode, and persistent state.
+- Initial release.

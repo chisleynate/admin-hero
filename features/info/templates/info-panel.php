@@ -65,19 +65,30 @@ $fields = [
 
           <!-- LINK button for any *_url field -->
           <?php if ( substr( $key, -4 ) === '_url' ) :
-              $has   = ! empty( $value );
-              $href  = $has ? esc_url( $value ) : '#';
-              $cls   = 'admin-hero-link-btn' . ( $has ? '' : ' disabled' );
-              $attrs = $has
-                     ? 'target="_blank"'
-                     : 'aria-disabled="true" tabindex="-1" onclick="return false;"';
+              $has = ! empty( $value );
+              $href = $has ? esc_url( $value ) : '#';
+              $classes = [ 'admin-hero-link-btn' ];
+              if ( ! $has ) {
+                  $classes[] = 'disabled';
+              }
+              $title = sprintf(
+                  // translators: %s: the field label, e.g. “Client Name”.
+                  esc_html__( 'Open %s', 'admin-hero' ),
+                  esc_html( $f['label'] )
+              );
           ?>
-            <a
-              href="<?php echo $href; ?>"
-              class="<?php echo esc_attr( $cls ); ?>"
-              title="Open <?php echo esc_attr( $f['label'] ); ?>"
-              <?php echo $attrs; ?>
-            ><i class="fas fa-external-link-alt"></i></a>
+            <a 
+              href="<?php echo esc_url( $href ); ?>"
+              class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>"
+              title="<?php echo esc_attr( $title ); ?>"
+              <?php if ( $has ) : ?>
+                target="_blank"
+              <?php else : ?>
+                aria-disabled="true" tabindex="-1" onclick="return false;"
+              <?php endif; ?>
+            >
+              <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
           <?php endif; ?>
 
           <!-- COPY button -->
@@ -161,15 +172,20 @@ $fields = [
     const form = document.getElementById('admin-hero-info-form');
     const data = new FormData(form);
     data.set('action', 'admin_hero_save_info');
-    data.set('nonce', '<?php echo wp_create_nonce("admin_hero_action"); ?>');
+    data.set('nonce', '<?php echo esc_js( wp_create_nonce( "admin_hero_action" ) ); ?>');
 
     try {
-      const res  = await fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
-        method:'POST',
-        body:data
-      });
+      const res = await fetch(
+        '<?php echo esc_url( admin_url( "admin-ajax.php" ) ); ?>',
+        {
+          method: 'POST',
+          body: data
+        }
+      );
       const json = await res.json();
-      if ( ! json.success ) console.error('Info save failed:', json);
+      if ( ! json.success ) {
+        console.error('Info save failed:', json);
+      }
     } catch (err) {
       console.error('Network error:', err);
     } finally {
@@ -206,5 +222,8 @@ $fields = [
 
   // also respond to the custom event for Pro sections
   document.addEventListener('admin-hero-saved', updateUrlLinks);
+
+  // Initialize URL‐links once on load
+  updateUrlLinks();
 })();
 </script>

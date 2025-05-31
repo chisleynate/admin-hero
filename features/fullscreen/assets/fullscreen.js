@@ -1,17 +1,71 @@
+// features/fullscreen/assets/fullscreen.js
 ;(function () {
-  const MODAL  = document.getElementById('admin-hero-modal');
-  const HEADER = document.getElementById('admin-hero-header');
-  let btn      = null;
-  let savedPos = null; // holds inline { position, left, top }
+  const MODAL      = document.getElementById('admin-hero-modal');
+  const HEADER     = document.getElementById('admin-hero-header');
+  let btn          = null;
 
-  // helper to disable/restore page scroll
+  // persistence keys
+  const POS_KEY    = 'adminHeroModalPosition';
+  const PRE_FS_KEY = 'adminHeroModalPositionBeforeFullscreen';
+  const FS_KEY     = 'adminHeroModalFullscreen';
+
+  // helper to disable/restore page scrolling
   function togglePageScroll(disable) {
     document.documentElement.style.overflow = disable ? 'hidden' : '';
     document.body.style.overflow            = disable ? 'hidden' : '';
   }
 
+  // snapshot current POS_KEY → PRE_FS_KEY
+  function snapshotPreFS() {
+    const raw = localStorage.getItem(POS_KEY);
+    if (raw) {
+      localStorage.setItem(PRE_FS_KEY, raw);
+    }
+  }
+
+  // restore position from PRE_FS_KEY
+  function restorePreFS() {
+    const raw = localStorage.getItem(PRE_FS_KEY);
+    if (!raw) return;
+    try {
+      const { top, left } = JSON.parse(raw);
+      MODAL.style.setProperty('position','fixed','important');
+      MODAL.style.setProperty('top',     `${top}px`,  'important');
+      MODAL.style.setProperty('left',    `${left}px`, 'important');
+    } catch {}
+  }
+
+  // Enter fullscreen: snapshot, clamp, class + inline sizing, persist FS_KEY
+  function enterFS() {
+    snapshotPreFS();
+    MODAL.classList.add('admin-hero-fullscreen');
+    togglePageScroll(true);
+    MODAL.style.setProperty('position', 'fixed',  'important');
+    MODAL.style.setProperty('top',      '0px',     'important');
+    MODAL.style.setProperty('left',     '0px',     'important');
+    MODAL.style.setProperty('width',    '100vw',   'important');
+    MODAL.style.setProperty('height',   '100vh',   'important');
+
+    // ←—— Write to localStorage so other tabs mirror instantly —→
+    localStorage.setItem(FS_KEY, 'true');
+  }
+
+  // Exit fullscreen: clear sizing, restore snapshot, clear FS_KEY
+  function exitFS() {
+    MODAL.classList.remove('admin-hero-fullscreen');
+    togglePageScroll(false);
+    ['position','top','left','width','height'].forEach(prop =>
+      MODAL.style.removeProperty(prop)
+    );
+    restorePreFS();
+
+    // ←—— Remove from localStorage so other tabs mirror instantly —→
+    localStorage.removeItem(FS_KEY);
+  }
+
   function addBtn() {
-    if (btn) return;
+    if (!MODAL || !HEADER || btn) return;
+
     btn = document.createElement('div');
     btn.id        = 'admin-hero-fullscreen-toggle';
     btn.className = 'admin-hero-fullscreen-toggle admin-hero-fullscreen-icon';
@@ -20,61 +74,54 @@
 
     btn.addEventListener('click', () => {
       const isFS = MODAL.classList.contains('admin-hero-fullscreen');
-
       if (!isFS) {
-        // → Entering fullscreen: stash inline coords
-        const inline = {};
-        ['position','left','top'].forEach(prop => {
-          if (MODAL.style[prop]) inline[prop] = MODAL.style[prop];
-          MODAL.style.removeProperty(prop);
-        });
-        savedPos = Object.keys(inline).length ? inline : null;
-      }
-
-      // → toggle full-screen class
-      MODAL.classList.toggle('admin-hero-fullscreen');
-
-      if (!isFS) {
-        // → disable page scroll
-        togglePageScroll(true);
+        enterFS();
       } else {
-        // → exit fullscreen: restore scroll and position
-        togglePageScroll(false);
-        if (savedPos) {
-          Object.entries(savedPos).forEach(([prop,val]) => {
-            MODAL.style[prop] = val;
-          });
-        } else {
-          ['position','left','top'].forEach(prop => {
-            MODAL.style.removeProperty(prop);
-          });
-        }
+        exitFS();
       }
+      // persistence.js will also see the FS_KEY change via storage event
     });
 
-    // inject into header next to close-X
-    HEADER.insertBefore(btn, HEADER.querySelector('.admin-hero-close-btn'));
+    HEADER.insertBefore(
+      btn,
+      HEADER.querySelector('.admin-hero-close-btn')
+    );
   }
 
   function removeBtn() {
     if (!btn) return;
-    // if we’re tearing it down mid-fullscreen, restore scroll
+    // if still in FS, exit it first
     if (MODAL.classList.contains('admin-hero-fullscreen')) {
-      togglePageScroll(false);
+      exitFS();
     }
     btn.remove();
     btn = null;
-    savedPos = null;
-    MODAL.classList.remove('admin-hero-fullscreen');
   }
 
   function init() {
     const feat = window.AdminHero?.features?.find(f => f.id === 'fullscreen');
     if (feat?.enabled) addBtn();
 
+    // Listen for live toggle in dashboard
     document.addEventListener('admin-hero-feature-toggle', e => {
       if (e.detail.featureId !== 'fullscreen') return;
       e.detail.enabled ? addBtn() : removeBtn();
+    });
+
+    // Cross-tab sync via storage events on FS_KEY
+    window.addEventListener('storage', e => {
+      if (e.storageArea !== localStorage || e.key !== FS_KEY) return;
+      // e.newValue === 'true' means remote tab entered fullscreen
+      if (e.newValue === 'true') {
+        if (!MODAL.classList.contains('admin-hero-fullscreen')) {
+          enterFS();
+        }
+      } else {
+        // remote tab exited fullscreen
+        if (MODAL.classList.contains('admin-hero-fullscreen')) {
+          exitFS();
+        }
+      }
     });
   }
 

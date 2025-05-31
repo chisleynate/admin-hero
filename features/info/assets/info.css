@@ -269,6 +269,6 @@
 
 /* Link Button */
 #admin-hero-modal #admin-hero-info-panel .admin-hero-info-content a.disabled {
-  color: #777777 !important;
+  color: #aaaaaa !important;
   cursor: not-allowed !important;
 }

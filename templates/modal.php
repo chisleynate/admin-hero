@@ -11,6 +11,9 @@
     </div>
 
     <div id="admin-hero-header">
+        <div id="admin-hero-settings-icons"></div>
+        <?php do_action( 'admin_hero_modal_header_buttons' ); ?>
+
         <div class="admin-hero-settings-toggle admin-hero-settings-icon"
              id="admin-hero-settings-toggle" title="Settings">
             <i class="fas fa-gear"></i>
@@ -19,8 +22,7 @@
              id="admin-hero-info-toggle" title="Info">
             <i class="fas fa-info-circle"></i>
         </div>
-        <div id="admin-hero-settings-icons"></div>
-        <?php do_action( 'admin_hero_modal_header_buttons' ); ?>
+
         <div class="admin-hero-close-btn" title="Close">
             <i class="fas fa-times"></i>
         </div>
@@ -32,12 +34,12 @@
         <div class="admin-hero-settings-content">
 
             <?php
-            // 1) Render ALL free‐version feature toggles (fullscreen, etc.)
+            // Render all toggles (we’ll remove Info + Fullscreen client-side)
             do_action( 'admin_hero_settings_ui' );
             ?>
 
             <?php if ( ! function_exists( 'admin_hero_pro_license_valid' ) || ! admin_hero_pro_license_valid() ) : ?>
-                <!-- 2) Then the Pro CTA teaser -->
+                <!-- Pro teaser... -->
                 <div class="admin-hero-pro-features">
                     <hr style="margin-top: 6px;"/>
                     <h5>Get much more with Pro!</h5>
@@ -104,7 +106,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // ——— Initialize Quill ———
+    // ——— Quill init (unchanged) ———
     const noteContent = <?php echo json_encode( $note ); ?>;
     if ( typeof Quill !== 'undefined' ) {
         const quill = new Quill('#admin-hero-editor', {
@@ -122,17 +124,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         quill.root.innerHTML = noteContent || '';
         window.quillEditor = quill;
-        // undo/redo
         document.querySelector('.ql-undo')?.addEventListener('click', () => quill.history.undo());
         document.querySelector('.ql-redo')?.addEventListener('click', () => quill.history.redo());
     }
 
-    // ——— Hide “Info” toggle in Settings ———
-    document.querySelectorAll('#admin-hero-settings-panel .admin-hero-setting-line').forEach(line => {
-        const lbl = line.querySelector('label');
-        if ( lbl?.textContent.trim() === 'Info' ) {
-            line.remove();
-        }
+    // helper to remove a setting by its label
+    function removeSetting(labelText) {
+        document.querySelectorAll('#admin-hero-settings-panel .admin-hero-setting-line').forEach(line => {
+            const lbl = line.querySelector('label');
+            if ( lbl && lbl.textContent.trim() === labelText ) {
+                line.remove();
+            }
+        });
+    }
+
+    // hide Info & Fullscreen when panel opens
+    const settingsBtn = document.getElementById('admin-hero-settings-toggle');
+    settingsBtn.addEventListener('click', () => {
+        // slight delay so the generic UI has time to render
+        setTimeout(() => {
+            removeSetting('Info');
+            removeSetting('Fullscreen Mode');
+        }, 50);
     });
 });
 </script>
