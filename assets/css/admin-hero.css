@@ -143,6 +143,36 @@
   outline: none !important;
 }
 
+#admin-hero-modal fieldset {
+  margin: 0 !important;
+  padding: 10px !important;
+  width: 30% !important;
+  border-radius: 8px !important;
+  border: none !important;
+  flex-grow: 1 !important;
+  flex-shrink: 0 !important;
+  min-width: 280px !important;
+  max-width: 960px !important;
+}
+
+#admin-hero-modal fieldset:nth-child(odd) {
+  background: #555555 !important;
+}
+
+#admin-hero-modal fieldset:nth-child(even) {
+  background: #666666 !important;
+}
+
+#admin-hero-modal fieldset legend {
+  text-align: center !important;
+  padding: 6px 8px 4px 8px !important;
+  font-size: 1em !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  background: #282828 !important;
+}
+
 /*******************************************************/
 /*** Modal *********************************************/
 /*******************************************************/
@@ -196,7 +226,8 @@
 /* Modal Controls */
 #admin-hero-modal .admin-hero-close-btn,
 #admin-hero-modal .admin-hero-settings-toggle,
-#admin-hero-modal .admin-hero-info-toggle {
+#admin-hero-modal .admin-hero-info-toggle,
+#admin-hero-modal .admin-hero-tasks-toggle {
   position: absolute;
   cursor: pointer;
   padding: 5px;
@@ -243,6 +274,21 @@
 }
 
 #admin-hero-modal .admin-hero-info-toggle:hover i {
+  color: #56ff00;
+}
+
+/* Tasks Icon */
+#admin-hero-modal .admin-hero-tasks-toggle {
+  right: 100px;
+  top: 6px;
+}
+
+#admin-hero-modal .admin-hero-tasks-toggle i {
+  font-size: 15px;
+  color: #aaaaaa;
+}
+
+#admin-hero-modal .admin-hero-tasks-toggle:hover i {
   color: #56ff00;
 }
 
@@ -596,7 +642,9 @@
   text-align: center;
 }
 
-/* Settings Panel */
+/*******************************************************/
+/*** Settings Panel ************************************/
+/*******************************************************/
 #admin-hero-modal #admin-hero-settings-panel.admin-hero-settings-overlay {
   position: absolute;
   top: 37px;
@@ -627,14 +675,16 @@
   height: 100%;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  margin: 0 0 30px 0;
+  flex-wrap: wrap;
 }
 
 #admin-hero-modal .admin-hero-pro-features {
   width: 100%;
-  max-width: 700px;
+  max-width: 960px;
 }
 
 #admin-hero-modal .admin-hero-pro-features ul {
@@ -679,6 +729,7 @@
   text-align: center;
   margin-bottom: 10px;
   user-select: none;
+  padding: 4px 0 0 0 !important;
 }
 
 #admin-hero-modal #admin-hero-autosave-switch,
@@ -741,8 +792,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 700px;
   padding: 4px 0 4px 0;
+  border-top: 1px solid #777777;
 }
 
 #admin-hero-modal .admin-hero-setting-line label {
@@ -765,7 +816,39 @@
 
 #admin-hero-modal .admin-hero-setting-line .switch {
   margin-left: 8px;
+  margin-bottom: -20px;
 }
+
+/* Style for the little icon in each description row */
+#admin-hero-modal .admin-hero-desc-icon {
+  color: #aaa;
+  font-size: 0.9em;
+  margin-right: 6px; /* spacing between icon and text */
+  cursor: help; /* indicates it’s informational */
+}
+#admin-hero-modal .admin-hero-desc-icon:hover {
+  color: #56ff00; /* hover‐color matching other icons */
+}
+
+/* Free Plugin Specific */
+#admin-hero-modal
+  #admin-hero-settings-panel.settings-free
+  .admin-hero-settings-content {
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+#admin-hero-modal #admin-hero-settings-panel.settings-free fieldset {
+  display: none !important;
+}
+
+/* Pro Plugin Specific
+#admin-hero-modal #admin-hero-settings-panel.settings-pro {
+  
+} */
 
 /*** Info Panel ***/
 #admin-hero-modal #admin-hero-info-panel.admin-hero-info-overlay {
@@ -785,6 +868,37 @@
   overflow-y: auto;
   gap: 0;
   z-index: 100004;
+}
+
+/* ─── Small “ℹ️” icon that sits right after each label ─────────────────────────── */
+.admin-hero-settings-fieldset .admin-hero-setting-line .admin-hero-toggle-text {
+  display: flex;
+  align-items: center;
+  /* label text will come first, then info‐icon */
+}
+
+/* The actual info‐icon “ℹ️” */
+.admin-hero-toggle-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px; /* space between the label text and the icon */
+  color: #aaa; /* default icon color */
+  font-size: 0.9em; /* slightly smaller than label text */
+  cursor: help; /* change cursor to “?” hover */
+}
+
+/* On hover, make it clearer: */
+.admin-hero-toggle-info:hover {
+  color: #56ff00; /* bright green on hover, for example */
+}
+
+/* Description text under each feature */
+.admin-hero-toggle-description {
+  margin: 3px 70px 8px 8px;
+  font-size: 0.85em;
+  color: #ccc;
+  text-align: left;
 }
 
 /* Info Header */

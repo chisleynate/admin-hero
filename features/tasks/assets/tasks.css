@@ -1,0 +1,56 @@
+/* ---- “Tasks” icon styling (same look as Info icon) ---- */
+#admin-hero-modal .admin-hero-tasks-icon i {
+  font-size: 15px;
+  color: #aaaaaa;
+}
+#admin-hero-modal .admin-hero-tasks-icon:hover i {
+  color: #56ff00;
+}
+
+/* ---- Tasks Panel (identical layout to the Info Panel) ---- */
+#admin-hero-modal #admin-hero-tasks-panel.admin-hero-tasks-overlay {
+  position: absolute;
+  top: 37px;
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+  background: #282828;
+  padding: 15px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: none; /* hidden by default; inline JS toggles to “flex” */
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow-y: auto;
+  gap: 0;
+  z-index: 100004;
+}
+
+/* ---- Panel Header (“Tasks” heading) ---- */
+#admin-hero-modal #admin-hero-tasks-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 8px 0 10px 0;
+  z-index: 100003;
+}
+
+/* ---- Panel Footer “Close” button styling ---- */
+#admin-hero-modal .ah-tasks-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0 0 0;
+  margin-top: auto;
+}
+#admin-hero-modal .ah-tasks-footer button.ah-close-button {
+  background: transparent !important;
+  color: #aaaaaa !important;
+}
+#admin-hero-modal .ah-tasks-footer button.ah-close-button:hover {
+  background: transparent !important;
+  color: red !important;
+}

@@ -10,25 +10,23 @@
             this.cacheElements();
             this.bindEvents();
             this.initFeatures();
-            this.enforceFrontendFloater();      // ◀ NEW: sync on startup
+            this.enforceFrontendFloater();
             if (this.is_admin && this.is_pro) this.initPro();
         },
 
         cacheElements() {
-            this.modal            = document.getElementById('admin-hero-modal');
-            this.closeBtn         = document.querySelector('.admin-hero-close-btn');
-            this.saveButton       = document.getElementById('admin-hero-save');
-            this.timestamp        = document.getElementById('admin-hero-timestamp');
-            this.overlay          = document.getElementById('admin-hero-overlay');
-            this.nonceInput       = document.getElementById('admin-hero-nonce');
-            this.settingsToggle   = document.getElementById('admin-hero-settings-toggle');
-            this.settingsPanel    = document.getElementById('admin-hero-settings-panel');
-            this.infoToggle       = document.getElementById('admin-hero-info-toggle');
-            this.infoPanel        = document.getElementById('admin-hero-info-panel');
-
-            // ◀ NEW: header icons for frontend / floater
-            this.frontendIcon     = document.querySelector('.admin-hero-frontend-icon');
-            this.floaterIcon      = document.querySelector('.admin-hero-floater-icon');
+            this.modal = document.getElementById('admin-hero-modal');
+            this.closeBtn = document.querySelector('.admin-hero-close-btn');
+            this.saveButton = document.getElementById('admin-hero-save');
+            this.timestamp = document.getElementById('admin-hero-timestamp');
+            this.overlay = document.getElementById('admin-hero-overlay');
+            this.nonceInput = document.getElementById('admin-hero-nonce');
+            this.settingsToggle = document.getElementById('admin-hero-settings-toggle');
+            this.settingsPanel = document.getElementById('admin-hero-settings-panel');
+            this.infoToggle = document.getElementById('admin-hero-info-toggle');
+            this.infoPanel = document.getElementById('admin-hero-info-panel');
+            this.frontendIcon = document.querySelector('.admin-hero-frontend-icon');
+            this.floaterIcon = document.querySelector('.admin-hero-floater-icon');
         },
 
         bindEvents() {
@@ -42,10 +40,9 @@
                 li.id = 'wp-admin-bar-admin-hero';
 
                 const a = document.createElement('a');
-                a.href  = '#';
+                a.href = '#';
                 a.title = 'AdminHero';
 
-                // choose free vs pro logo
                 const logoSrc = this.is_pro && this.logo_pro_url
                     ? this.logo_pro_url
                     : this.logo_url;
@@ -68,14 +65,12 @@
                     'admin_hero_save_note',
                     { nonce: this.nonceInput.value || this.nonce, note: content }
                 ).then(json => {
-                    // update timestamp
                     if (this.timestamp) {
                         this.timestamp.textContent = 'Last saved: ' + json.data.timestamp;
                     }
                     document.dispatchEvent(new CustomEvent('admin-hero-saved', {
                         detail: { timestamp: json.data.timestamp }
                     }));
-                    // hide overlay after a little pause
                     setTimeout(() => {
                         this.overlay.classList.remove('admin-hero-visible');
                         setTimeout(() => this.overlay.style.display = 'none', 200);
@@ -83,22 +78,9 @@
                 });
             });
 
-            this.settingsToggle?.addEventListener('click', () =>
-                this.togglePanel(this.settingsPanel)
-            );
-            this.infoToggle?.addEventListener('click', () =>
-                this.togglePanel(this.infoPanel)
-            );
+            // Panel toggle logic is now handled in modal-core.php
 
-            this.settingsPanel
-                ?.querySelector('#admin-hero-close-settings')
-                ?.addEventListener('click', () => this.settingsPanel.style.display = 'none');
-
-            this.infoPanel
-                ?.querySelector('#admin-hero-close-info')
-                ?.addEventListener('click', () => this.infoPanel.style.display = 'none');
-
-            // ◀ NEW: listen for any feature toggle
+            // Listen for feature toggle
             document.addEventListener('admin-hero-feature-toggle', ({ detail }) => {
                 this.handleFeatureToggle(detail.featureId, detail.enabled);
             });
@@ -155,39 +137,65 @@
             this.modal.style.display = hidden ? 'none' : 'flex';
         },
 
-        togglePanel(panel) {
-            const isOpen = panel.style.display === 'flex';
-            this.settingsPanel.style.display = 'none';
-            this.infoPanel.style.display     = 'none';
-            panel.style.display = isOpen ? 'none' : 'flex';
-        },
-
         initFeatures() {
             const container = this.settingsPanel?.querySelector('.admin-hero-settings-content');
             if (!container || !Array.isArray(this.features)) return;
 
-            // determine where to insert toggles
-            const refElement =
-                container.querySelector('.admin-hero-pro-features')
-                || container.querySelector('.get-pro-button')
-                || container.querySelector('#admin-hero-close-settings');
+            let fieldset = container.querySelector('fieldset.admin-hero-settings-fieldset');
+
+            if (!fieldset) {
+                fieldset = document.createElement('fieldset');
+                fieldset.className = 'admin-hero-settings-fieldset';
+                const legend = document.createElement('legend');
+                legend.textContent = 'Global';
+                fieldset.appendChild(legend);
+
+                const refElement =
+                    container.querySelector('.admin-hero-pro-features')
+                    || container.querySelector('.get-pro-button')
+                    || container.querySelector('#admin-hero-close-settings');
+                container.insertBefore(fieldset, refElement);
+            }
+
+            const refElementInside = 
+                fieldset.querySelector('.admin-hero-pro-features')
+                || fieldset.querySelector('.get-pro-button')
+                || fieldset.querySelector('#admin-hero-close-settings')
+                || null;
 
             this.features.forEach(feature => {
                 const line = document.createElement('div');
                 line.className = 'admin-hero-setting-line';
 
                 const label = document.createElement('label');
-                label.className   = 'admin-hero-toggle-text';
+                label.className = 'admin-hero-toggle-text';
                 label.textContent = feature.name;
+
+                if (typeof feature.tooltip === 'string' && feature.tooltip.trim().length > 0) {
+                    const infoSpan = document.createElement('span');
+                    infoSpan.className = 'admin-hero-toggle-info';
+                    infoSpan.title = feature.tooltip.trim();
+
+                    const infoIcon = document.createElement('i');
+                    infoIcon.className = 'fas fa-info-circle';
+                    infoSpan.appendChild(infoIcon);
+
+                    infoSpan.style.marginLeft = '6px';
+                    infoSpan.style.cursor = 'help';
+                    infoIcon.style.color = '#aaa';
+                    infoIcon.style.fontSize = '0.9em';
+                    infoSpan.addEventListener('mouseenter', () => infoIcon.style.color = '#56ff00');
+                    infoSpan.addEventListener('mouseleave', () => infoIcon.style.color = '#aaa');
+
+                    label.appendChild(infoSpan);
+                }
 
                 const wrap = document.createElement('label');
                 wrap.className = 'switch';
 
                 const input = document.createElement('input');
-                input.type    = 'checkbox';
+                input.type = 'checkbox';
                 input.checked = feature.enabled;
-
-                // ◀ NEW: tag each toggle
                 input.dataset.featureId = feature.id;
 
                 input.addEventListener('change', () => {
@@ -209,26 +217,48 @@
                 wrap.append(input, slider);
                 line.append(label, wrap);
 
-                container.insertBefore(line, refElement);
+                if (refElementInside) {
+                    fieldset.insertBefore(line, refElementInside);
+                } else {
+                    fieldset.appendChild(line);
+                }
+
+                if (typeof feature.description === 'string' && feature.description.trim().length > 0) {
+                    const descDiv = document.createElement('div');
+                    descDiv.className = 'admin-hero-toggle-description';
+
+                    const bulletIcon = document.createElement('i');
+                    bulletIcon.className = 'fas fa-info-circle admin-hero-desc-icon';
+                    bulletIcon.style.marginRight = '6px';
+                    bulletIcon.style.color = '#aaa';
+                    bulletIcon.style.fontSize = '0.9em';
+                    bulletIcon.addEventListener('mouseenter', () => bulletIcon.style.color = '#56ff00');
+                    bulletIcon.addEventListener('mouseleave', () => bulletIcon.style.color = '#aaa');
+
+                    descDiv.appendChild(bulletIcon);
+                    descDiv.appendChild(document.createTextNode(feature.description.trim()));
+
+                    if (refElementInside) {
+                        fieldset.insertBefore(descDiv, refElementInside);
+                    } else {
+                        fieldset.appendChild(descDiv);
+                    }
+                }
             });
         },
 
-        // ◀ NEW: enforce frontend↔floater rules
         enforceFrontendFloater() {
             const fe = document.querySelector('input[data-feature-id="frontend"]');
             const fl = document.querySelector('input[data-feature-id="floater"]');
             if (!fe || !fl) return;
 
             if (!fe.checked) {
-                // frontend notes off → floater off & disabled
                 fl.checked = false;
                 fl.disabled = true;
             } else {
-                // frontend notes on → floater enabled
                 fl.disabled = false;
                 if (!fl.checked) {
                     fl.checked = true;
-                    // auto-persist
                     this.apiCall('admin_hero_save_settings', {
                         nonce: this.nonceInput.value || this.nonce,
                         'settings[floater]': '1'
@@ -244,55 +274,50 @@
             }
         },
 
-        // ◀ NEW: show/hide header icons per your 3 states
         updateHeaderIcons() {
             const fe = document.querySelector('input[data-feature-id="frontend"]');
             const fl = document.querySelector('input[data-feature-id="floater"]');
             if (!this.frontendIcon || !this.floaterIcon || !fe) return;
 
             if (!fe.checked) {
-                // notes off → both hidden
                 this.frontendIcon.style.display = 'none';
-                this.floaterIcon.style.display  = 'none';
+                this.floaterIcon.style.display = 'none';
                 return;
             }
             if (fe.checked && !fl.checked) {
-                // notes on & floater off → show notes icon, hide floater
                 this.frontendIcon.style.display = 'block';
-                this.floaterIcon.style.display  = 'none';
+                this.floaterIcon.style.display = 'none';
                 return;
             }
-            // both on → both hidden
             this.frontendIcon.style.display = 'none';
-            this.floaterIcon.style.display  = 'none';
+            this.floaterIcon.style.display = 'none';
         },
 
         initPro() {
             if (!this.proStyleUrl || !this.proScriptUrl) return;
             const link = document.createElement('link');
-            link.rel  = 'stylesheet';
+            link.rel = 'stylesheet';
             link.href = this.proStyleUrl;
             document.head.appendChild(link);
 
             const script = document.createElement('script');
-            script.src     = this.proScriptUrl;
+            script.src = this.proScriptUrl;
             script.onload = () => document.dispatchEvent(new CustomEvent('admin-hero-pro-loaded'));
             document.body.appendChild(script);
         }
     };
 
-    // inherit globals passed in by PHP
     if (window.AdminHero) {
-        AdminHero.ajax_url      = window.AdminHero.ajax_url;
-        AdminHero.nonce         = window.AdminHero.nonce;
-        AdminHero.version       = window.AdminHero.version;
-        AdminHero.is_admin      = window.AdminHero.is_admin;
-        AdminHero.is_pro        = window.AdminHero.is_pro;
-        AdminHero.features      = window.AdminHero.features;
-        AdminHero.proStyleUrl   = window.AdminHero.proStyleUrl;
-        AdminHero.proScriptUrl  = window.AdminHero.proScriptUrl;
-        AdminHero.logo_url      = window.AdminHero.logo_url;
-        AdminHero.logo_pro_url  = window.AdminHero.logo_pro_url;
+        AdminHero.ajax_url = window.AdminHero.ajax_url;
+        AdminHero.nonce = window.AdminHero.nonce;
+        AdminHero.version = window.AdminHero.version;
+        AdminHero.is_admin = window.AdminHero.is_admin;
+        AdminHero.is_pro = window.AdminHero.is_pro;
+        AdminHero.features = window.AdminHero.features;
+        AdminHero.proStyleUrl = window.AdminHero.proStyleUrl;
+        AdminHero.proScriptUrl = window.AdminHero.proScriptUrl;
+        AdminHero.logo_url = window.AdminHero.logo_url;
+        AdminHero.logo_pro_url = window.AdminHero.logo_pro_url;
     }
 
     window.AdminHero = AdminHero;

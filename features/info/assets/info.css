@@ -31,7 +31,7 @@
   box-sizing: border-box !important;
 }
 
-/* Legend */
+/* Legend 
 #admin-hero-modal
   #admin-hero-info-panel
   .admin-hero-info-content
@@ -44,9 +44,9 @@
   color: #ffffff !important;
   border-radius: 4px !important;
   background: #282828 !important;
-}
+}*/
 
-/* Fieldset */
+/* Fieldset 
 #admin-hero-modal
   #admin-hero-info-panel
   .admin-hero-info-content
@@ -61,9 +61,9 @@
   flex-shrink: 0 !important;
   min-width: 280px !important;
   max-width: 960px !important;
-}
+}*/
 
-#admin-hero-modal
+/*#admin-hero-modal
   #admin-hero-info-panel
   .admin-hero-info-content
   fieldset:nth-child(odd) {
@@ -75,7 +75,7 @@
   .admin-hero-info-content
   fieldset:nth-child(even) {
   background: #666666 !important;
-}
+}*/
 
 /* Item Wrapper */
 #admin-hero-modal #admin-hero-info-panel .admin-hero-info-content fieldset p {
@@ -88,6 +88,7 @@
   flex-direction: row !important;
   flex-wrap: wrap !important;
   justify-content: space-between !important;
+  align-items: center !important;
 }
 
 /* Labels */
@@ -99,7 +100,7 @@
   width: 30% !important;
   text-align: left !important;
   flex-grow: 1 !important;
-  padding: 10px 8px 0 0 !important;
+  padding: 4px 8px 0 0 !important;
   font-size: 0.9em !important;
 }
 
